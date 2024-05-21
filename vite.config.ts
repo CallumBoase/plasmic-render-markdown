@@ -13,7 +13,18 @@ export default defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "react/jsx-runtime", "@plasmicapp/host"],
+      external: [
+        "react", 
+        "react/jsx-runtime", 
+        "@plasmicapp/host",
+        "react-markdown",
+        "rehype-highlight",
+        "rehype-raw",
+        "rehype-slug",
+        "remark-gfm",
+        "remark-toc",
+        "unist-util-visit"
+      ],
       output: {
         assetFileNames: "assets/[name][extname]",
         entryFileNames: "[name].js",
