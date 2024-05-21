@@ -89,4 +89,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 ## Dev notes
 For instructions on local testing, testing in a Plasmic app & publishing, see the [plasmic-component-library-template](https://github.com/CallumBoase/plasmic-component-library-template/blob/main/README.md) README which this component library is based on.
 
+### Procedure for publishing updates 
+1. Update the version in `package.json` using semantic versioning
+2. Update `changelog.md`
+3. Push all changes to github
+4. Run `npm publish` to publish the new version to npm
+5. Create a new release & tag via the github user interface with the same version number as in `package.json`
+
 
