@@ -3,7 +3,7 @@ import { RenderMarkdownProps } from ".";
 
 export const renderMarkdownMeta: CodeComponentMeta<RenderMarkdownProps> = {
   name: "RenderMarkdown",
-  importPath: "./index",
+  importPath: "plasmic-render-markdown",
   props: {
     markdownText: {
       type: "string",
