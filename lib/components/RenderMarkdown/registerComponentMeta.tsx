@@ -25,6 +25,11 @@ export const renderMarkdownMeta: CodeComponentMeta<RenderMarkdownProps> = {
       description: 'Whether the markdownText prop is URI encoded. If true, the markdownText prop will be decoded before rendering. If false, the markdownText prop will be rendered as is.',
       defaultValue: false
     },
+    showCopyCodeBtnsInCodeBlocks: {
+      type: "boolean",
+      description: "Show copy code buttons in code blocks?",
+      defaultValue: true
+    },
     className: {
       type: "class",
       selectors: [
