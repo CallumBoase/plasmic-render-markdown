@@ -17,6 +17,7 @@ export type RenderMarkdownProps = {
   dangerouslyRenderHtmlTags?: boolean;
   autoGenerateTableOfContents?: boolean;
   inputTextIsEncoded?: boolean;
+  showCopyCodeBtnsInCodeBlocks?: boolean;
   className?: string;
 };
 
@@ -25,6 +26,7 @@ export function RenderMarkdown({
   dangerouslyRenderHtmlTags = false,
   autoGenerateTableOfContents = false,
   inputTextIsEncoded = false,
+  showCopyCodeBtnsInCodeBlocks = true,
   className = "",
 }: RenderMarkdownProps) {
   
@@ -38,12 +40,12 @@ export function RenderMarkdown({
   const remarkPlugins = autoGenerateTableOfContents ? [remarkGfm, remarkToc] : [remarkGfm];
   const rehypePlugins = [
     rehypeHighlight,
-    rehypeAddCopyButton,
+    ...(showCopyCodeBtnsInCodeBlocks ? [rehypeAddCopyButton] : []),
     ...(autoGenerateTableOfContents ? [rehypeSlug] : []),
     ...(dangerouslyRenderHtmlTags ? [rehypeRaw] : [])
   ];
 
-  //Make the "copy code" buttons work
+  //Make the "copy code" buttons work (if present)
   useEffect(() => {
     const handleCopy = (event: Event) => {
       const buttonElement = event.currentTarget as HTMLButtonElement;
